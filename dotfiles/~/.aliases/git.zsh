@@ -1,0 +1,5 @@
+alias gbD='git branch -D '
+alias gdf='git --no-pager diff --name-only '
+alias gre='git reset'
+alias greh='git reset --hard'
+alias gt='git tag -fa '
