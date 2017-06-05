@@ -13,6 +13,5 @@ do
     dotfile_dst=${dotfile/#\/\~/$HOME}
     mkdir -p $(dirname $dotfile_dst)
     rm -f $dotfile_dst
-    echo "ln -sf $dotfile_src $dotfile_dst"
     ln -sf $dotfile_src $dotfile_dst
 done
