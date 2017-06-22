@@ -1,9 +1,14 @@
 # Put executables on path
+#
 # Mosh starts a non-login, non-interactive shell;
 # It does not read ~/.zprofile or ~/.zshrc
+
 unset PATH
+
 export PATH="$PATH:/Users/garyfernie/bin"
 export PATH="$PATH:/Applications/arcanist/arcanist/bin"
+export PATH="$PATH:/opt/spark-2.1.0-bin-hadoop2.7/bin"
+
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/opt/local/bin"
 export PATH="$PATH:/usr/bin"
