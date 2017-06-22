@@ -98,7 +98,7 @@ source_dirs=(
     ~/.environment
     ~/.functions
 )
-for file in $(find -E $source_dirs -regex '.+\.z?sh' -type f); source $file
+for file in $(find -E $source_dirs -regex '.+\.z?sh'); source $file
 
 # Docker
 source ~/Projects/docker/docker/contrib/completion/zsh/_docker
