@@ -6,7 +6,7 @@ export ZSH=/Users/garyfernie/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="gozilla"
-ZSH_THEME="robbyrussell-custom"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="false"
@@ -101,9 +101,12 @@ source_dirs=(
 for file in $(find -E $source_dirs -regex '.+\.z?sh'); source $file
 
 # Docker
-source ~/Projects/docker/docker/contrib/completion/zsh/_docker
-source ~/Projects/docker/compose/contrib/completion/zsh/_docker-compose
-source ~/Projects/docker/machine/contrib/completion/zsh/_docker-machine
+#source ~/Projects/docker/docker/contrib/completion/zsh/_docker
+#source ~/Projects/docker/compose/contrib/completion/zsh/_docker-compose
+#source ~/Projects/docker/machine/contrib/completion/zsh/_docker-machine
+
+# Zsh completion
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Bash completion
 autoload -U +X compinit && compinit
@@ -119,7 +122,7 @@ source /usr/local/etc/bash_completion.d/tmux
 #source ~/.pyenv/completions/pyenv.zsh
 
 # Zsh syntax highlighting
-source ~/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fzf - command-line fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

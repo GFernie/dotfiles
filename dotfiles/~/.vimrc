@@ -12,6 +12,7 @@ set undofile
 set undodir=~/.vim/undo//,.
 
 " Syntax highlighting
+set t_Co=256
 colorscheme Tomorrow-Night
 syntax on
 
