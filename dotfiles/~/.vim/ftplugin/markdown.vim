@@ -1,8 +1,10 @@
 " Tabs
-set tabstop=8
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Column guide
-set textwidth=72
-let &colorcolumn="73"
+set textwidth=79
+let &colorcolumn="80"
+set formatoptions+=tcroqnj
+set formatoptions-=a

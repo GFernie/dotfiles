@@ -4,3 +4,4 @@ alias gdmb="git diff $(git merge-base --fork-point master)"
 alias gre='git reset'
 alias greh='git reset --hard'
 alias gt='git tag -fa '
+alias gpo='git push origin'

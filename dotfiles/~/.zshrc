@@ -56,6 +56,7 @@ plugins=(
     docker-machine
     git
     pip
+    tmux
 )
 
 # User configuration
@@ -112,9 +113,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
-# Arcanist
-source /Applications/arcanist/arcanist/resources/shell/bash-completion
-
 # Tmux
 source /usr/local/etc/bash_completion.d/tmux
 
@@ -126,3 +124,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # fzf - command-line fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Z directory jumper
+. /usr/local/etc/profile.d/z.sh

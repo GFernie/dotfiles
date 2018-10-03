@@ -14,8 +14,10 @@ set autoindent
 "set foldlevel=99
 
 " Column guide for docstrings and code
-" set textwidth=79
+"set textwidth=72
 let &colorcolumn="73,80"
+set formatoptions+=croqn1j
+set formatoptions-=twal
 
 " Virtualenv evaluation
 "py << EOF

@@ -84,10 +84,16 @@ autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | se
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 " Start a note
-nnoremap <leader>n :tabedit ~/Notes/<C-R>=strftime("%Y-%m-%dT%T%z")<CR>.md<CR>:cd ~<CR>
+nnoremap <leader>n :tabedit ~/Notes/<C-R>=strftime("%Y-%m-%dT%T%z")<CR>.md<CR>:lcd %:p:h<CR>1<C-G><CR>
 
 " Change TODO list marker
 nnoremap <Leader>m ^r
+
+" Auto reload changed files
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim#383044
+autocmd CursorHold,CursorHoldI,FocusGained,BufEnter * checktime
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+set autoread
 
 " Use Ctrl+XCV clipboard as default unnamed register
 set clipboard=unnamedplus
@@ -108,11 +114,9 @@ set splitright
 " vim-plug - plugin manager
 call plug#begin()
 
-"Plug 'airblade/vim-gitgutter'
 "Plug 'tpope/vim-sleuth'  " Ignores user configed `expandtab`
-"Plug 'vim-scripts/vim-svngutter'
-"
 Plug 'IN3d/vim-raml'
+Plug 'Konfekt/vim-alias'
 Plug 'Rykka/InstantRst'
 Plug 'Rykka/riv.vim'
 Plug 'Valloric/YouCompleteMe'
@@ -131,7 +135,11 @@ Plug 'vim-scripts/indentpython.vim'
 call plug#end()
 
 " YouCompleteMe config
+let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'new-or-existing-tab'
+let g:ycm_python_binary_path = 'python'
+nnoremap <leader>* :YcmCompleter GoTo<CR>
+nnoremap <leader>** :YcmCompleter GoToReferences<CR>
 
 " tslime - run Vim buffer in next Tmux pane
 vmap <C-c><C-c> <Plug>SendSelectionToTmux

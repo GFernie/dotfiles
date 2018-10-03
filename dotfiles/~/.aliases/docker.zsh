@@ -15,6 +15,8 @@ alias dkrmid='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 
 alias dkc='docker-compose '
 alias dkcu='docker-compose up '
+alias dkcub='docker-compose up --build'
+alias dkcd='docker-compose down'
 alias dkcr='docker-compose run '
 
 alias dkm='docker-machine '
