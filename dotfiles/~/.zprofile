@@ -17,6 +17,3 @@ alias vless='/usr/local/Cellar/vim/7.4.1724/share/vim/vim74/macros/less.sh'
 #export PAGER='vless'
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-# Homebrew
-export HOMEBREW_GITHUB_API_TOKEN='28a21248a01dbd741d22f31a9a4d649418ebe645'
