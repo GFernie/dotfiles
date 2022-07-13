@@ -3,7 +3,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 #source ~/.pyenv/completions/pyenv.zsh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-source /usr/local/bin/virtualenvwrapper.sh
 
 # jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi

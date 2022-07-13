@@ -112,6 +112,12 @@ set splitright
 "set shell=$SHELL\ -i
 
 " vim-plug - plugin manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 "Plug 'tpope/vim-sleuth'  " Ignores user configed `expandtab`
@@ -183,7 +189,8 @@ let g:SimpylFold_fold_docstring = 0
 let g:SimpylFold_fold_import = 0
 
 " fzf - fuzzy finder
-set rtp+=~/.fzf
+"set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 nnoremap <Leader>o :FZF<CR>
 nnoremap <Leader>O :FZF ~/Projects/<CR>
 nnoremap <Leader>p :tabedit<CR>:FZF!<CR>
@@ -195,6 +202,4 @@ autocmd BufNewFile,BufRead *.psql setf pgsql
 " Powerline
 "source /Users/garyfernie/.pyenv/versions/2.7.10/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 "set laststatus=2
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+py3 import powerline.vim; powerline.vim.setup()

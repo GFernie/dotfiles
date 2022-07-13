@@ -15,6 +15,10 @@ CASE_SENSITIVE="false"
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
+# Uncomment the following line to automatically upgrade oh-my-zsh without
+# prompting you.
+DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -51,6 +55,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    aws
     docker
     docker-compose
     docker-machine
@@ -119,6 +124,9 @@ source /usr/local/etc/bash_completion.d/tmux
 # Pyenv
 #source ~/.pyenv/completions/pyenv.zsh
 
+# kubectl autocompletion
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 # Zsh syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -127,3 +135,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Z directory jumper
 . /usr/local/etc/profile.d/z.sh
+
+complete -o nospace -C /usr/local/bin/grapplercat-autocomplete grapplercat
+
+# nvm
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
